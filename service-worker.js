@@ -3,7 +3,7 @@
    SERVICE WORKER
 ========================================================= */
 
-const CACHE_NAME = "politica-valores-v1";
+const CACHE_NAME = "politica-valores-v2";
 
 
 /* =========================================================
