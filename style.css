@@ -1,0 +1,1411 @@
+/* =========================================================
+   EQUIPO POLÍTICA CON VALORES
+   DIPUTADO PEDRO LEÓN
+   Diseño futurista / PWA musical
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   VARIABLES DE COLOR
+========================================================= */
+
+:root {
+
+    --azul-profundo: #071B63;
+    --azul: #176A9D;
+    --cian: #08A9C8;
+    --dorado: #F2D000;
+    --magenta: #C50050;
+
+    --blanco: #FFFFFF;
+    --gris-claro: #F4F7FB;
+    --gris: #667085;
+    --negro: #101828;
+
+    --sombra:
+        0 20px 60px rgba(7, 27, 99, 0.18);
+
+    --sombra-suave:
+        0 8px 30px rgba(7, 27, 99, 0.10);
+
+    --radio: 22px;
+}
+
+
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        'Montserrat',
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(8, 169, 200, 0.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(197, 0, 80, 0.07),
+            transparent 30%
+        ),
+
+        var(--gris-claro);
+
+    color: var(--negro);
+
+    padding-bottom: 120px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   EFECTOS DE LUZ
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    top: 20%;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(8, 169, 200, 0.08);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    right: -180px;
+    bottom: 10%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(197, 0, 80, 0.07);
+
+    filter: blur(70px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        var(--azul-profundo);
+}
+
+
+/* Imagen */
+
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0.95;
+
+    transform: scale(1.02);
+
+    animation:
+        heroZoom 18s ease-in-out infinite alternate;
+}
+
+
+@keyframes heroZoom {
+
+    from {
+        transform: scale(1.02);
+    }
+
+    to {
+        transform: scale(1.07);
+    }
+}
+
+
+/* Capa futurista */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(7, 27, 99, 0.97) 0%,
+            rgba(7, 27, 99, 0.88) 28%,
+            rgba(7, 27, 99, 0.60) 58%,
+            rgba(7, 27, 99, 0.15) 100%
+        );
+}
+
+
+/* Línea luminosa */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--cian),
+            var(--dorado),
+            var(--magenta)
+        );
+
+    box-shadow:
+        0 0 25px rgba(8, 169, 200, 0.7);
+}
+
+
+/* =========================================================
+   CONTENIDO HERO
+========================================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1150px, 100%);
+
+    margin: auto;
+
+    padding:
+        110px 28px
+        100px;
+
+    color: var(--blanco);
+}
+
+
+.badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        11px 18px;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-radius: 50px;
+
+    background:
+
+        rgba(8, 169, 200, 0.20);
+
+    backdrop-filter:
+        blur(12px);
+
+    color: var(--blanco);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+
+    box-shadow:
+
+        0 0 30px
+        rgba(8, 169, 200, 0.18);
+}
+
+
+/* =========================================================
+   TITULO
+========================================================= */
+
+h1 {
+
+    margin-top: 25px;
+
+    font-size:
+        clamp(
+            3rem,
+            7vw,
+            6.5rem
+        );
+
+    line-height: 0.9;
+
+    letter-spacing: -0.055em;
+
+    text-transform: uppercase;
+
+    text-shadow:
+
+        0 10px 40px
+        rgba(0,0,0,0.25);
+}
+
+
+h1 strong {
+
+    display: inline-block;
+
+    color: var(--dorado);
+
+    text-shadow:
+
+        0 0 25px
+        rgba(242, 208, 0, 0.35);
+}
+
+
+.hero-content p {
+
+    margin-top: 25px;
+
+    max-width: 550px;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+    color:
+
+        rgba(255,255,255,0.88);
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding:
+        14px 22px;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 0.85rem;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.btn:active {
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* Botón instalar */
+
+.btn-gold {
+
+    margin-top: 28px;
+
+    background:
+        var(--dorado);
+
+    color:
+        var(--azul-profundo);
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(242, 208, 0, 0.30);
+}
+
+
+.btn-gold:hover {
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(242, 208, 0, 0.45);
+}
+
+
+/* Botón avisos */
+
+.btn-outline {
+
+    background:
+        rgba(255,255,255,0.92);
+
+    color:
+        var(--azul-profundo);
+
+    border:
+        2px solid
+        var(--azul-profundo);
+
+    box-shadow:
+        var(--sombra-suave);
+}
+
+
+.btn-outline:hover {
+
+    background:
+        var(--azul-profundo);
+
+    color:
+        var(--blanco);
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+main {
+
+    width:
+        min(
+            1150px,
+            calc(100% - 40px)
+        );
+
+    margin:
+        0 auto;
+
+    padding:
+        60px 0;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-end;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+
+.eyebrow {
+
+    display: inline-block;
+
+    color:
+        var(--magenta);
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.18em;
+}
+
+
+h2 {
+
+    margin-top: 8px;
+
+    color:
+        var(--azul-profundo);
+
+    font-size:
+        clamp(
+            1.8rem,
+            4vw,
+            2.8rem
+        );
+
+    line-height:
+        1.1;
+
+    letter-spacing:
+        -0.04em;
+}
+
+
+.intro p {
+
+    margin-top: 12px;
+
+    max-width: 620px;
+
+    color:
+        var(--gris);
+
+    font-size:
+        0.95rem;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   PLAYLIST
+========================================================= */
+
+.playlist {
+
+    display:
+        grid;
+
+    gap:
+        14px;
+}
+
+
+/* =========================================================
+   TARJETA DE CANCIÓN
+========================================================= */
+
+.track {
+
+    position:
+        relative;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        58px 1fr auto;
+
+    align-items:
+        center;
+
+    gap:
+        16px;
+
+    padding:
+        15px 18px;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    border:
+        1px solid
+        rgba(7,27,99,0.06);
+
+    border-radius:
+        var(--radio);
+
+    box-shadow:
+        var(--sombra-suave);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+    overflow:
+        hidden;
+}
+
+
+.track::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            var(--cian),
+            var(--magenta)
+        );
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease;
+}
+
+
+.track:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--sombra);
+
+    border-color:
+        rgba(8,169,200,0.25);
+}
+
+
+.track:hover::before {
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   NUMERO DE CANCIÓN
+========================================================= */
+
+.track-number {
+
+    width:
+        58px;
+
+    height:
+        58px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        18px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--azul-profundo),
+            var(--azul)
+        );
+
+    color:
+        var(--blanco);
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        800;
+
+    box-shadow:
+
+        0 8px 20px
+        rgba(7,27,99,0.22);
+}
+
+
+/* =========================================================
+   INFORMACIÓN DE CANCIÓN
+========================================================= */
+
+.track-title {
+
+    color:
+        var(--azul-profundo);
+
+    font-size:
+        0.98rem;
+
+    font-weight:
+        800;
+}
+
+
+.track-meta {
+
+    margin-top:
+        5px;
+
+    color:
+        #98A2B3;
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        500;
+}
+
+
+/* =========================================================
+   BOTONES DE TRACK
+========================================================= */
+
+.track-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+}
+
+
+.play-btn,
+.download-btn {
+
+    border:
+        none;
+
+    border-radius:
+        13px;
+
+    padding:
+        10px 13px;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size:
+        0.72rem;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    text-decoration:
+        none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.play-btn {
+
+    background:
+        var(--magenta);
+
+    color:
+        var(--blanco);
+
+    box-shadow:
+
+        0 7px 18px
+        rgba(197,0,80,0.22);
+}
+
+
+.play-btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(197,0,80,0.35);
+}
+
+
+.download-btn {
+
+    background:
+        rgba(7,27,99,0.07);
+
+    color:
+        var(--azul-profundo);
+}
+
+
+.download-btn:hover {
+
+    background:
+        var(--azul-profundo);
+
+    color:
+        var(--blanco);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    position:
+        relative;
+
+    padding:
+        35px 20px;
+
+    text-align:
+        center;
+
+    background:
+        var(--azul-profundo);
+
+    color:
+        var(--blanco);
+
+    overflow:
+        hidden;
+}
+
+
+footer::before {
+
+    content: "";
+
+    position:
+        absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--cian),
+            var(--dorado),
+            var(--magenta)
+        );
+}
+
+
+footer div {
+
+    font-weight:
+        800;
+
+    font-size:
+        0.9rem;
+}
+
+
+footer small {
+
+    display:
+        block;
+
+    margin-top:
+        8px;
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size:
+        0.7rem;
+}
+
+
+/* =========================================================
+   REPRODUCTOR FIJO
+========================================================= */
+
+.player {
+
+    position:
+        fixed;
+
+    z-index:
+        100;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    bottom:
+        0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(180px, 1.4fr)
+        48px
+        minmax(150px, 1fr)
+        55px;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    padding:
+        14px
+        max(18px, calc((100vw - 1150px) / 2));
+
+    background:
+        rgba(7,27,99,0.97);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    box-shadow:
+
+        0 -15px 50px
+        rgba(7,27,99,0.28);
+
+    backdrop-filter:
+        blur(20px);
+
+    color:
+        var(--blanco);
+}
+
+
+.player-info {
+
+    min-width:
+        0;
+}
+
+
+.player-label {
+
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        var(--dorado);
+
+    font-size:
+        0.58rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.12em;
+}
+
+
+.player-info strong {
+
+    display:
+        block;
+
+    overflow:
+        hidden;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+    font-size:
+        0.8rem;
+}
+
+
+/* =========================================================
+   BOTÓN PLAY PRINCIPAL
+========================================================= */
+
+.circle-btn {
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--dorado);
+
+    color:
+        var(--azul-profundo);
+
+    font-size:
+        1rem;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+
+        0 0 25px
+        rgba(242,208,0,0.25);
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.circle-btn:hover {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   BARRA DE PROGRESO
+========================================================= */
+
+#progress {
+
+    width:
+        100%;
+
+    height:
+        5px;
+
+    cursor:
+        pointer;
+
+    accent-color:
+        var(--dorado);
+}
+
+
+#time {
+
+    font-size:
+        0.65rem;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width:
+        8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #edf1f7;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--azul),
+            var(--magenta)
+        );
+
+    border-radius:
+        20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLETS
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .hero {
+
+        min-height:
+            580px;
+    }
+
+
+    .intro {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+
+    .track {
+
+        grid-template-columns:
+            55px 1fr;
+
+    }
+
+
+    .track-actions {
+
+        grid-column:
+            2;
+
+        justify-content:
+            flex-start;
+    }
+
+
+    .player {
+
+        grid-template-columns:
+            1fr 48px auto;
+
+        gap:
+            10px;
+    }
+
+
+    #progress {
+
+        grid-column:
+            1 / -1;
+
+        grid-row:
+            2;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding-bottom:
+            125px;
+    }
+
+
+    .hero {
+
+        min-height:
+            570px;
+    }
+
+
+    .hero-overlay {
+
+        background:
+
+            linear-gradient(
+                180deg,
+                rgba(7,27,99,0.94),
+                rgba(7,27,99,0.70)
+            );
+    }
+
+
+    .hero-content {
+
+        padding:
+            80px 20px;
+    }
+
+
+    h1 {
+
+        font-size:
+            clamp(
+                2.8rem,
+                15vw,
+                4.5rem
+            );
+    }
+
+
+    main {
+
+        width:
+            calc(100% - 28px);
+
+        padding:
+            40px 0;
+    }
+
+
+    .track {
+
+        padding:
+            13px;
+
+        border-radius:
+            18px;
+
+        gap:
+            12px;
+    }
+
+
+    .track-number {
+
+        width:
+            48px;
+
+        height:
+            48px;
+
+        border-radius:
+            15px;
+    }
+
+
+    .track-title {
+
+        font-size:
+            0.85rem;
+    }
+
+
+    .track-meta {
+
+        font-size:
+            0.62rem;
+    }
+
+
+    .track-actions {
+
+        gap:
+            6px;
+    }
+
+
+    .play-btn,
+    .download-btn {
+
+        padding:
+            9px 10px;
+
+        font-size:
+            0.65rem;
+    }
+
+
+    .player {
+
+        padding:
+            12px 14px 14px;
+    }
+
+
+    .player-info strong {
+
+        font-size:
+            0.72rem;
+    }
+
+
+    .circle-btn {
+
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+
+    outline:
+        3px solid
+        var(--cian);
+
+    outline-offset:
+        3px;
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
