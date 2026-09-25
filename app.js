@@ -274,7 +274,7 @@ function reproducirCancion(cancion) {
 
 
     audio.load();
-
+   audio.volume = 1.0;
 
     nowPlaying.textContent =
         cancion.titulo;
