@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#071B63"
+    >
+
+    <meta
+        name="description"
+        content="Equipo Política con Valores - Diputado Pedro León"
+    >
+
+    <title>
+        Equipo Política con Valores
+    </title>
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <link
+        rel="icon"
+        href="icon-192.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="icon-192.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO PRINCIPAL
+    ========================== -->
+
+    <header class="hero">
+
+        <img
+            src="img/portada.png"
+            alt="Equipo Política con Valores - Diputado Pedro León"
+            class="hero-image"
+        >
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <span class="badge">
+                EQUIPO POLÍTICA CON VALORES
+            </span>
+
+            <h1>
+                Diputado
+                <br>
+                <strong>Pedro León</strong>
+            </h1>
+
+            <p>
+                Música, identidad y participación.
+            </p>
+
+            <button
+                id="installBtn"
+                class="btn btn-gold"
+                hidden
+            >
+                📲 Instalar aplicación
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+
+    <main>
+
+        <section class="intro">
+
+            <div>
+
+                <span class="eyebrow">
+                    PLAYLIST
+                </span>
+
+                <h2>
+                    Escucha nuestras canciones
+                </h2>
+
+                <p>
+                    Reproduce tus canciones favoritas
+                    o descárgalas directamente desde
+                    la aplicación.
+                </p>
+
+            </div>
+
+
+            <button
+                id="notifyBtn"
+                class="btn btn-outline"
+            >
+                🔔 Activar avisos
+            </button>
+
+        </section>
+
+
+        <!--
+            Las 20 canciones serán cargadas
+            automáticamente mediante JavaScript.
+        -->
+
+        <section
+            id="playlist"
+            class="playlist"
+            aria-label="Lista de canciones"
+        >
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+
+    <footer>
+
+        <div>
+            Equipo Política con Valores
+        </div>
+
+        <small>
+            Diputado Pedro León
+        </small>
+
+    </footer>
+
+
+    <!-- =========================
+         REPRODUCTOR
+    ========================== -->
+
+    <div
+        id="player"
+        class="player"
+        hidden
+    >
+
+        <div class="player-info">
+
+            <span class="player-label">
+                REPRODUCIENDO
+            </span>
+
+            <strong id="nowPlaying">
+                —
+            </strong>
+
+        </div>
+
+
+        <button
+            id="playPause"
+            class="circle-btn"
+            aria-label="Reproducir o pausar"
+        >
+            ▶
+        </button>
+
+
+        <input
+            id="progress"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            aria-label="Progreso de la canción"
+        >
+
+
+        <span id="time">
+            00:00
+        </span>
+
+    </div>
+
+
+    <!-- =========================
+         REPRODUCTOR DE AUDIO
+    ========================== -->
+
+    <audio
+        id="audio"
+        preload="metadata"
+    ></audio>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="app.js"></script>
+
+</body>
+</html>
